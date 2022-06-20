@@ -4,9 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>To-Do list</title>
   </head>
   <body>
+    <div class="dashboard">
+      <section class="left">
+        <div class="left-side-wrapper">
+          <div class="user-profile">
+            <img src="../src/assets/mock-pfp.jpg" alt="pfp" />
+            <div class="user-info">
+              <h4>Destiny Uduebholo</h4>
+              <p class="nos-of-projects">4</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-magnifying-glass search-icon"></i><input type="search" placeholder="dummy search bar" />
+          <ul>
+            <li><i style="color: var(--icon-purple-color)" class="fa-regular fa-sun"></i>My Day</li>
+            <li><i style="color: var(--icon-grey-color)" class="fa-regular fa-star"></i>Important</li>
+            <li><i style="color: var(--icon-green-color)" class="fa-regular fa-calendar"></i>Planned</li>
+            <li><i style="color: var(--icon-orange-color)" class="fa-solid fa-infinity"></i>All</li>
+            <li><i style="color: var(--icon-red-color)" class="fa-regular fa-circle-check"></i>Completed</li>
+          </ul>
+        </div>
+        <div class="add-project-container">
+          <button class="new-project"><i class="fa-solid fa-plus"></i>New Project</button>
+        </div>
+      </section>
+      <section class="right"></section>
+    </div>
     <script src="./bundle.js"></script>
   </body>
 </html>

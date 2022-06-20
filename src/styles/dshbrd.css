@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+:root {
+  --left-section-background-color: #e7e8e8;
+  --grey-color: #dadadb;
+  --icon-purple-color: #a076a7;
+  --icon-grey-color: #979da3;
+  --icon-green-color: #4f7f7d;
+  --icon-orange-color: #aa6954;
+  --icon-red-color: rgb(173, 43, 43);
+}
+
+/* soft reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Quicksand, sans-serif, serif;
+}
+
+/* main dashboard area */
+.dashboard {
+  height: 100vh;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+/* left hand section */
+.left {
+  border: 1px solid black;
+  background: var(--left-section-background-color);
+  position: relative;
+}
+
+.left-side-wrapper,
+.add-project-container {
+  width: 90%;
+  margin: auto;
+}
+
+.user-profile img {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.user-info {
+  height: fit-content;
+  align-self: center;
+}
+
+.user-info p {
+  margin-top: 5px;
+}
+
+.left-side-wrapper input {
+  width: 90%;
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  background: var(--grey-color);
+  font-size: 1rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-bottom: 15px;
+}
+
+.left-side-wrapper input::placeholder {
+  font-weight: bold;
+}
+.user-profile {
+  display: flex;
+  margin: 30px 0 10px 0;
+  justify-content: flex-start;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.left-side-wrapper input:focus {
+  outline: none;
+}
+
+.search-icon {
+  width: 10%;
+  background-color: var(--grey-color);
+  padding: 9px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.left-side-wrapper ul {
+  list-style: none;
+}
+
+.left-side-wrapper ul li i {
+  width: 32px;
+  text-align: center;
+}
+
+.left-side-wrapper li {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.new-project {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 90%;
+  margin: auto;
+  text-align: left;
+  position: absolute;
+  padding: 7px;
+  bottom: 40px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.new-project:hover {
+  background: var(--grey-color);
+}
+
+.new-project i {
+  width: 32px;
+  margin-right: 5px;
+  text-align: center;
+}
