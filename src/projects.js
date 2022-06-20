@@ -1,5 +1,8 @@
 export const DEFAULT_PROJECTS = [];
-export const projects = [DEFAULT_PROJECTS];
+const project1 = [];
+const project2 = [];
+const project3 = [];
+export const projects = [DEFAULT_PROJECTS, project1, project2, project3];
 
 export function createNewProjectsFolder(projectName) {
   projectName = [];
@@ -24,3 +27,6 @@ export function userSidebarProjects() {
   });
   leftSideWrapper.appendChild(projectsList);
 }
+
+// display tasks in default project
+export function displayDefaultProjectTasks() {}

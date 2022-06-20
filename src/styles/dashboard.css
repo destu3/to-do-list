@@ -1,0 +1,356 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+:root {
+  --main-background-color: #e7e8e8;
+  --grey-color: #dadadb;
+  --grey-underline-color: #c8c8ca;
+  --icon-purple-color: #a076a7;
+  --icon-grey-color: #979da3;
+  --icon-green-color: #4f7f7d;
+  --icon-orange-color: #aa6954;
+  --icon-red-color: rgb(173, 43, 43);
+  --green-color: #4cc437;
+  --red-color: #ff6262;
+}
+
+/* soft reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Quicksand, sans-serif, serif;
+}
+
+/* main dashboard area */
+.dashboard {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+/* left hand section */
+.left {
+  background: var(--main-background-color);
+  position: relative;
+  min-width: 270px;
+}
+
+.left-side-wrapper,
+.add-project-container {
+  width: 90%;
+  margin: auto;
+}
+
+.user-profile img {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.user-info {
+  height: fit-content;
+  align-self: center;
+}
+
+.user-info p {
+  margin-top: 5px;
+}
+
+.left-side-wrapper input {
+  width: 90%;
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  background: var(--grey-color);
+  font-size: 1rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.left-side-wrapper input::placeholder {
+  font-weight: bold;
+}
+.user-profile {
+  display: flex;
+  margin: 30px 0 10px 0;
+  justify-content: flex-start;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.left-side-wrapper input:focus {
+  outline: none;
+}
+
+.search-icon {
+  width: 10%;
+  background-color: var(--grey-color);
+  padding: 9px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.left-side-wrapper ul {
+  list-style: none;
+}
+
+.left-side-wrapper ul li i {
+  width: 32px;
+  text-align: center;
+}
+
+.left-side-wrapper li {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.new-project {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 90%;
+  margin: auto;
+  text-align: left;
+  position: absolute;
+  padding: 7px;
+  bottom: 40px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.left-side-wrapper ul button {
+  height: fit-content;
+  margin: 16px 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.left-side-wrapper ul button:hover {
+  color: var(--icon-grey-color);
+}
+
+.new-project:hover {
+  background: var(--grey-color);
+}
+
+.new-project i {
+  width: 32px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+#divider {
+  height: 2px;
+  background-color: var(--grey-underline-color);
+}
+
+.projects li {
+  padding-left: 8px;
+}
+
+/* right hand section */
+.right {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  height: 90%;
+  width: 90%;
+}
+
+.default-task-view {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 80px;
+  grid-auto-rows: 80px;
+  gap: 5px;
+}
+
+.task {
+  background: var(--main-background-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.task > * {
+  margin: 0 15px;
+}
+
+/* custom checkbox */
+.task label {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  border-radius: 50px;
+  background: #fff;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.task input {
+  display: none;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--red-color);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+  border-radius: 50%;
+}
+
+.task input:checked ~ .circle {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.task input:checked ~ .circle::before {
+  background: var(--green-color);
+}
+
+/* end of checkbox */
+
+.task h4,
+.task p {
+  font-weight: bold;
+}
+
+.task button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  flex: 1;
+  text-align: right;
+}
+
+.task i {
+  font-size: 1.5rem;
+  color: var(--green-color);
+}
+
+/* add new task button */
+#new-task-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 70px;
+  height: 100px;
+  width: 100px;
+  border: none;
+  border-radius: 50%;
+  font-size: 3rem;
+  background: var(--main-background-color);
+  transition: all 0.3s;
+  cursor: pointer;
+  z-index: 5;
+}
+
+#new-task-btn:hover {
+  transform: scale(1.1);
+}
+
+/* add new task overlay */
+
+.modal-container form {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  width: 250px;
+}
+
+.modal-container form input,
+.modal-container form select {
+  padding: 8px;
+  margin: 3px 0 10px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+.modal-container form input:focus,
+.modal-container form select:focus {
+  outline: none;
+}
+
+.submit-form-button,
+.close-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 1.3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+  border: none;
+  margin: 15px 0 10px 0;
+  border-radius: 50%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-form-button:hover {
+  transform: scale(1.1);
+  background-color: #9ef090;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--red-color);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(159, 169, 177, 0.8);
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  z-index: -10;
+}
+
+.modal-container h2 {
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+/* open modal */
+.open-modal {
+  visibility: visible;
+  z-index: 10;
+}

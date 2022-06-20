@@ -1,5 +1,6 @@
 import { projects, DEFAULT_PROJECTS } from "./projects";
-export default class Task {
+
+export class Task {
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
@@ -21,8 +22,10 @@ export default class Task {
   }
 }
 
-function createNewTask(title, desc, dueDate, priority) {
+export function createNewTask(title, desc, dueDate, priority) {
   let task = new Task(title, desc, dueDate, priority);
   //for now all tasks will be added to DEFAULT_PROJECTS array
   DEFAULT_PROJECTS.push(task);
+  console.log(projects);
+  console.log(DEFAULT_PROJECTS);
 }
