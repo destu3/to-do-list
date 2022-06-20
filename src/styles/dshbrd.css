@@ -3,6 +3,7 @@
 :root {
   --left-section-background-color: #e7e8e8;
   --grey-color: #dadadb;
+  --grey-underline-color: #c8c8ca;
   --icon-purple-color: #a076a7;
   --icon-grey-color: #979da3;
   --icon-green-color: #4f7f7d;
@@ -31,6 +32,7 @@
   border: 1px solid black;
   background: var(--left-section-background-color);
   position: relative;
+  min-width: 270px;
 }
 
 .left-side-wrapper,
@@ -63,6 +65,7 @@
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .left-side-wrapper input::placeholder {
@@ -101,7 +104,6 @@
 .left-side-wrapper li {
   font-size: 1.1rem;
   font-weight: bold;
-  margin: 10px 0;
 }
 
 .new-project {
@@ -119,6 +121,19 @@
   cursor: pointer;
 }
 
+.left-side-wrapper ul button {
+  height: fit-content;
+  margin: 16px 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.left-side-wrapper ul button:hover {
+  color: var(--icon-grey-color);
+}
+
 .new-project:hover {
   background: var(--grey-color);
 }
@@ -127,4 +142,13 @@
   width: 32px;
   margin-right: 5px;
   text-align: center;
+}
+
+#divider {
+  height: 2px;
+  background-color: var(--grey-underline-color);
+}
+
+.projects li {
+  padding-left: 8px;
 }
