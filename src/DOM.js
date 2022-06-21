@@ -1,5 +1,5 @@
 import { userSidebarProjects, DEFAULT_PROJECTS, projects } from "./projects";
-import { createNewTask } from "./tasks";
+import { createNewTask, taskColor } from "./tasks";
 
 // This module handles functions for most DOM events
 export function generateProjectsOnSidebar() {
@@ -41,6 +41,7 @@ export function defaultGenerateTasks() {
   DEFAULT_PROJECTS.forEach(task => {
     const taskDiv = document.createElement("div");
     taskDiv.classList.add("task");
+    taskDiv.style.background = taskColor(task.priority);
     const checkBox = document.createElement("input");
     checkBox.classList.add("checkbox");
     checkBox.setAttribute("data-default-projects-index", DEFAULT_PROJECTS.indexOf(task));

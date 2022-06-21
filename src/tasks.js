@@ -36,3 +36,16 @@ let yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
 export const DEFAULT_TASK = new Task("Default Task", "This is a default task", String(today), "Average Severity");
+
+export function taskColor(severity) {
+  let taskColor = null;
+
+  if (severity === "unimportant") {
+    taskColor = "#a6fd97";
+  } else if (severity === "default") {
+    taskColor = "#FFD580";
+  } else {
+    taskColor = " #FF7276";
+  }
+  return taskColor;
+}

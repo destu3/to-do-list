@@ -3,12 +3,6 @@ import { DEFAULT_TASK } from "./tasks";
 export const DEFAULT_PROJECTS = [DEFAULT_TASK];
 export const projects = [DEFAULT_PROJECTS];
 
-export function createNewProjectsFolder(projectName) {
-  projectName = [];
-  projects.push(projectName);
-  console.log(projects);
-}
-
 // DOM elements
 const leftSideWrapper = document.querySelector(".left-side-wrapper");
 
@@ -26,6 +20,3 @@ export function userSidebarProjects() {
   });
   leftSideWrapper.appendChild(projectsList);
 }
-
-// display tasks in default project
-export function displayDefaultProjectTasks() {}
