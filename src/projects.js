@@ -1,8 +1,7 @@
-export const DEFAULT_PROJECTS = [];
-const project1 = [];
-const project2 = [];
-const project3 = [];
-export const projects = [DEFAULT_PROJECTS, project1, project2, project3];
+import { DEFAULT_TASK } from "./tasks";
+
+export const DEFAULT_PROJECTS = [DEFAULT_TASK];
+export const projects = [DEFAULT_PROJECTS];
 
 export function createNewProjectsFolder(projectName) {
   projectName = [];

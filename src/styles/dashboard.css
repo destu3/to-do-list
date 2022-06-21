@@ -159,6 +159,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 .main-container {
@@ -188,57 +189,11 @@
   margin: 0 15px;
 }
 
-/* custom checkbox */
-.task label {
-  position: relative;
-  width: 100px;
-  height: 30px;
-  border-radius: 50px;
-  background: #fff;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
-  margin: 10px 0;
-  cursor: pointer;
-}
-
 .task input {
-  display: none;
+  height: 25px;
+  width: 25px;
+  accent-color: var(--green-color);
 }
-
-.circle {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.5s ease-in-out;
-  pointer-events: none;
-}
-
-.circle::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  background: var(--red-color);
-  transition: 0.5s;
-  transition-delay: 0.5s;
-  border-radius: 50%;
-}
-
-.task input:checked ~ .circle {
-  transform: translate(-50%, -50%) rotate(180deg);
-}
-
-.task input:checked ~ .circle::before {
-  background: var(--green-color);
-}
-
-/* end of checkbox */
 
 .task h4,
 .task p {
@@ -268,7 +223,8 @@
   border: none;
   border-radius: 50%;
   font-size: 3rem;
-  background: var(--main-background-color);
+  background: rgb(17, 17, 17);
+  color: var(--grey-color);
   transition: all 0.3s;
   cursor: pointer;
   z-index: 5;

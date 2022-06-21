@@ -26,6 +26,13 @@ export function createNewTask(title, desc, dueDate, priority) {
   let task = new Task(title, desc, dueDate, priority);
   //for now all tasks will be added to DEFAULT_PROJECTS array
   DEFAULT_PROJECTS.push(task);
-  console.log(projects);
-  console.log(DEFAULT_PROJECTS);
 }
+
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, "0");
+let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+let yyyy = today.getFullYear();
+
+today = mm + "/" + dd + "/" + yyyy;
+
+export const DEFAULT_TASK = new Task("Default Task", "This is a default task", String(today), "Average Severity");
