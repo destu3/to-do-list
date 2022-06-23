@@ -107,11 +107,11 @@
   font-weight: bold;
 }
 
-.new-project {
+.tip {
   border: none;
   background: transparent;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: bolder;
   width: 90%;
   margin: auto;
   text-align: left;
@@ -135,12 +135,13 @@
   color: var(--icon-grey-color);
 }
 
-.new-project:hover {
+.tip:hover {
   background: var(--grey-color);
 }
 
-.new-project i {
-  width: 32px;
+.tip i {
+  width: 10px;
+  font-size: 1.2rem;
   margin-right: 5px;
   text-align: center;
 }
@@ -186,6 +187,12 @@
   padding: 8px;
   cursor: pointer;
   position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.task:hover {
+  transform: scale(1.06);
 }
 
 .task > * {

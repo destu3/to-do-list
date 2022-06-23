@@ -33,7 +33,7 @@ let dd = String(today.getDate()).padStart(2, "0");
 let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 let yyyy = today.getFullYear();
 
-today = mm + "/" + dd + "/" + yyyy;
+today = yyyy + "-" + mm + "-" + dd;
 
 export const DEFAULT_TASK = new Task("Default Task", "This is a default task", today, "Average Severity");
 
@@ -48,9 +48,4 @@ export function taskColor(severity) {
     taskColor = "#FF7276";
   }
   return taskColor;
-}
-
-export function viewMoreDetails() {
-  let extraTaskDetails = document.querySelector(".task-details");
-  extraTaskDetails.classList.toggle("view-more");
 }

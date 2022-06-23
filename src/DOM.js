@@ -1,5 +1,5 @@
 import { userSidebarProjects, DEFAULT_PROJECTS, projects } from "./projects";
-import { createNewTask, taskColor, viewMoreDetails } from "./tasks";
+import { createNewTask, taskColor } from "./tasks";
 
 // This module handles functions for most DOM events
 export function openNewTaskModal() {
@@ -47,8 +47,11 @@ export function defaultGenerateTasks() {
     const taskSeverity = document.createElement("p");
     taskSeverity.textContent = task.priority;
     extraTaskDetails.append(taskDesc, taskSeverity);
-    taskDiv.addEventListener("click", () => {
-      viewMoreDetails();
+    taskDiv.addEventListener("mouseover", () => {
+      extraTaskDetails.classList.add("view-more");
+    });
+    taskDiv.addEventListener("mouseout", () => {
+      extraTaskDetails.classList.remove("view-more");
     });
 
     const checkBox = document.createElement("input");
