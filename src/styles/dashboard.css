@@ -9,6 +9,7 @@
   --icon-green-color: #4f7f7d;
   --icon-orange-color: #aa6954;
   --icon-red-color: rgb(173, 43, 43);
+  --icon-pink-color: rgb(211, 144, 155);
   --green-color: #4cc437;
   --red-color: #ff6262;
 }
@@ -183,6 +184,8 @@
   display: flex;
   align-items: center;
   padding: 8px;
+  cursor: pointer;
+  position: relative;
 }
 
 .task > * {
@@ -204,8 +207,9 @@
   border: none;
   cursor: pointer;
   background: transparent;
-  flex: 1;
   text-align: right;
+  position: absolute;
+  right: 0;
 }
 
 .task i {
@@ -308,4 +312,13 @@
 .open-modal {
   visibility: visible;
   z-index: 10;
+}
+
+/* view details about task */
+.task-details {
+  visibility: hidden;
+}
+
+.view-more {
+  visibility: visible;
 }

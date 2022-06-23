@@ -1,21 +1,13 @@
-import { projects, DEFAULT_PROJECTS, createNewProjectsFolder } from "./projects.js";
 import "../src/styles/dashboard.css";
-import {
-  generateProjectsOnSidebar,
-  openNewTaskModal,
-  closeNewTaskModal,
-  newTask,
-  defaultGenerateTasks,
-  toggleTaskComplete,
-} from "./DOM.js";
+import { openNewTaskModal, closeNewTaskModal, newTask, defaultGenerateTasks } from "./DOM.js";
 
 // selecting main DOM elements
 const openModal = document.querySelector("#new-task-btn");
 const closeModal = document.querySelector(".close-btn");
 const createTask = document.querySelector(".submit-form-button");
+const currentDate = document.getElementById("curr-date");
 
 // content that is generated when the window loads
-window.addEventListener("DOMContentLoaded", generateProjectsOnSidebar);
 window.addEventListener("DOMContentLoaded", defaultGenerateTasks);
 
 //task modal handlers

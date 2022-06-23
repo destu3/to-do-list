@@ -35,17 +35,22 @@ let yyyy = today.getFullYear();
 
 today = mm + "/" + dd + "/" + yyyy;
 
-export const DEFAULT_TASK = new Task("Default Task", "This is a default task", String(today), "Average Severity");
+export const DEFAULT_TASK = new Task("Default Task", "This is a default task", today, "Average Severity");
 
 export function taskColor(severity) {
   let taskColor = null;
 
-  if (severity === "unimportant") {
+  if (severity == "Not severe") {
     taskColor = "#a6fd97";
-  } else if (severity === "default") {
+  } else if (severity == "Average Severity") {
     taskColor = "#FFD580";
-  } else {
-    taskColor = " #FF7276";
+  } else if (severity == "Severe") {
+    taskColor = "#FF7276";
   }
   return taskColor;
+}
+
+export function viewMoreDetails() {
+  let extraTaskDetails = document.querySelector(".task-details");
+  extraTaskDetails.classList.toggle("view-more");
 }

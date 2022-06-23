@@ -1,11 +1,7 @@
 import { userSidebarProjects, DEFAULT_PROJECTS, projects } from "./projects";
-import { createNewTask, taskColor } from "./tasks";
+import { createNewTask, taskColor, viewMoreDetails } from "./tasks";
 
 // This module handles functions for most DOM events
-export function generateProjectsOnSidebar() {
-  userSidebarProjects();
-}
-
 export function openNewTaskModal() {
   const modalOverlay = document.querySelector(".modal-overlay");
 
@@ -41,10 +37,22 @@ export function defaultGenerateTasks() {
   DEFAULT_PROJECTS.forEach(task => {
     const taskDiv = document.createElement("div");
     taskDiv.classList.add("task");
+    taskDiv.setAttribute("data-default-projects-index", DEFAULT_PROJECTS.indexOf(task));
     taskDiv.style.background = taskColor(task.priority);
+    // view more details of task added to every task created
+    const extraTaskDetails = document.createElement("div");
+    extraTaskDetails.classList.add("task-details");
+    const taskDesc = document.createElement("p");
+    taskDesc.textContent = task.description;
+    const taskSeverity = document.createElement("p");
+    taskSeverity.textContent = task.priority;
+    extraTaskDetails.append(taskDesc, taskSeverity);
+    taskDiv.addEventListener("click", () => {
+      viewMoreDetails();
+    });
+
     const checkBox = document.createElement("input");
     checkBox.classList.add("checkbox");
-    checkBox.setAttribute("data-default-projects-index", DEFAULT_PROJECTS.indexOf(task));
     checkBox.type = "checkbox";
     const taskSummary = document.createElement("div");
     taskSummary.classList.add("task-summary");
@@ -58,7 +66,7 @@ export function defaultGenerateTasks() {
     favIcon.classList.add("fa-regular", "fa-star", "favourite");
     favBtn.appendChild(favIcon);
 
-    taskDiv.append(checkBox, taskSummary, favBtn);
+    taskDiv.append(checkBox, taskSummary, favBtn, extraTaskDetails);
     defaultTaskView.appendChild(taskDiv);
   });
 }

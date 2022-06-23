@@ -21,18 +21,18 @@
             <img src="../src/assets/mock-pfp.jpg" alt="pfp" />
             <div class="user-info">
               <h4>Destiny Uduebholo</h4>
-              <p class="nos-of-projects">4</p>
+              <p id="curr-date"></p>
             </div>
           </div>
           <i class="fa-solid fa-magnifying-glass search-icon"></i><input type="search" placeholder="search..." />
           <ul>
             <button>
-              <li><i style="color: var(--icon-purple-color)" class="fa-regular fa-sun"></i>My Day</li>
+              <li><i style="color: var(--icon-purple-color)" class="fa-solid fa-list-check"></i>My Tasks</li>
             </button>
             <button>
-              <li><i style="color: var(--icon-grey-color)" class="fa-regular fa-star"></i>Important</li></button
+              <li><i style="color: var(--icon-green-color)" class="fa-regular fa-star"></i>Important</li></button
             ><button>
-              <li><i style="color: var(--icon-green-color)" class="fa-regular fa-calendar"></i>Planned</li></button
+              <li><i style="color: var(--icon-pink-color)" class="fa-regular fa-calendar"></i>Planned</li></button
             ><button>
               <li><i style="color: var(--icon-orange-color)" class="fa-solid fa-infinity"></i>All</li></button
             ><button>
@@ -64,9 +64,9 @@
           <input type="date" name="due-date" id="due-date" />
           <label for="priority">Priority</label>
           <select name="priority" id="priority">
-            <option value="unimportant">Not severe</option>
-            <option value="default">Average Severity</option>
-            <option value="severe">Make time right away!</option>
+            <option value="Not severe">Not severe</option>
+            <option value="Average Severity">Average Severity</option>
+            <option value="Severe">Severe</option>
           </select>
           <div class="buttons">
             <button class="close-btn" type="button">
