@@ -1,5 +1,5 @@
-import { userSidebarProjects, DEFAULT_PROJECTS, projects } from "./projects";
-import { createNewTask, taskColor } from "./tasks";
+import { DEFAULT_PROJECTS, DEFAULT_PROJECTS_Deserialized } from "./projects";
+import { createNewTask, taskColor, deleteTask } from "./tasks";
 
 // This module handles functions for most DOM events
 export function openNewTaskModal() {
@@ -68,13 +68,23 @@ export function defaultGenerateTasks() {
     const favIcon = document.createElement("i");
     favIcon.classList.add("fa-regular", "fa-star", "favourite");
     favBtn.appendChild(favIcon);
+    // delete button for task cards
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-regular", "fa-trash-can", "delete");
+    deleteBtn.addEventListener("click", () => {
+      deleteTask(taskDiv.getAttribute("data-default-projects-index"));
+    });
+    deleteBtn.appendChild(deleteIcon);
 
-    taskDiv.append(checkBox, taskSummary, favBtn, extraTaskDetails);
+    // appending content on the DOM
+    taskDiv.append(checkBox, taskSummary, favBtn, extraTaskDetails, deleteBtn);
     defaultTaskView.appendChild(taskDiv);
   });
 }
 
-function clearMainContainer() {
+export function clearMainContainer() {
   while (mainContainer.firstChild) {
     mainContainer.removeChild(mainContainer.firstChild);
   }

@@ -192,7 +192,7 @@
 }
 
 .task:hover {
-  transform: scale(1.06);
+  opacity: 0.9;
 }
 
 .task > * {
@@ -217,6 +217,18 @@
   text-align: right;
   position: absolute;
   right: 0;
+}
+
+.task .delete-btn {
+  right: 40px;
+}
+
+.favourite:hover {
+  color: green;
+}
+
+.delete:hover {
+  color: red;
 }
 
 .task i {

@@ -1,4 +1,5 @@
-import { projects, DEFAULT_PROJECTS } from "./projects";
+import { DEFAULT_PROJECTS } from "./projects";
+import { clearMainContainer, defaultGenerateTasks } from "./DOM";
 
 export class Task {
   constructor(title, description, dueDate, priority) {
@@ -48,4 +49,10 @@ export function taskColor(severity) {
     taskColor = "#FF7276";
   }
   return taskColor;
+}
+
+export function deleteTask(index) {
+  DEFAULT_PROJECTS.splice(index, 1);
+  clearMainContainer();
+  defaultGenerateTasks();
 }
