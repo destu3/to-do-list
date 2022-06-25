@@ -1,5 +1,11 @@
-import { DEFAULT_PROJECTS, DEFAULT_PROJECTS_Deserialized } from "./projects";
-import { createNewTask, taskColor, deleteTask } from "./tasks";
+import { DEFAULT_PROJECTS } from "./projects";
+import { createNewTask, taskColor, deleteTask, generateFromLocal } from "./tasks";
+
+// new task DOM inputs
+export const title = document.getElementById("title");
+export const desc = document.getElementById("desc");
+export const dueDate = document.getElementById("due-date");
+export const priority = document.getElementById("priority");
 
 // This module handles functions for most DOM events
 export function openNewTaskModal() {
@@ -14,19 +20,10 @@ export function closeNewTaskModal() {
   modalOverlay.classList.remove("open-modal");
 }
 
-export function newTask() {
-  const title = document.getElementById("title");
-  const desc = document.getElementById("desc");
-  const dueDate = document.getElementById("due-date");
-  const priority = document.getElementById("priority");
-
-  createNewTask(title.value, desc.value, dueDate.value, priority.value);
-  clearMainContainer();
-  defaultGenerateTasks();
-}
-
 // main container that everything is generated on
 const mainContainer = document.querySelector(".main-container");
+
+generateFromLocal();
 
 // generate tasks from DEFAULT_PROJECTS array by default
 export function defaultGenerateTasks() {

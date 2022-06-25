@@ -1,5 +1,5 @@
 import { DEFAULT_PROJECTS } from "./projects";
-import { clearMainContainer, defaultGenerateTasks } from "./DOM";
+import { clearMainContainer, defaultGenerateTasks, desc, title, dueDate, priority } from "./DOM";
 
 export class Task {
   constructor(title, description, dueDate, priority) {
@@ -23,10 +23,15 @@ export class Task {
   }
 }
 
-export function createNewTask(title, desc, dueDate, priority) {
+function createNewTask(title, desc, dueDate, priority) {
   let task = new Task(title, desc, dueDate, priority);
   //for now all tasks will be added to DEFAULT_PROJECTS array
   DEFAULT_PROJECTS.push(task);
+}
+
+function newTaskLocalStorage(title, desc, dueDate, priority) {
+  let task = new Task(title, desc, dueDate, priority);
+  return task;
 }
 
 let today = new Date();
@@ -53,6 +58,46 @@ export function taskColor(severity) {
 
 export function deleteTask(index) {
   DEFAULT_PROJECTS.splice(index, 1);
+  clearMainContainer();
+  defaultGenerateTasks();
+}
+
+// save task to local storage
+export function save() {
+  //task to add to local storage
+  let task = newTaskLocalStorage(title.value, desc.value, dueDate.value, priority.value);
+
+  //if there is nothing saved at the start then save an empty string
+  if (localStorage.getItem("Default Projects") == null) {
+    localStorage.setItem("Default Projects", "[]");
+  }
+
+  //add task to the Default Project
+  let old_data = JSON.parse(localStorage.getItem("Default Projects"));
+  let stringTask = JSON.stringify(task);
+  old_data.push(stringTask);
+
+  localStorage.setItem("Default Projects", JSON.stringify(old_data));
+}
+
+//populate DEFAULT_PROJECTS with tasks from local storage
+export function generateFromLocal() {
+  let objectVersion = JSON.parse(localStorage.getItem("Default Projects"));
+  if (localStorage.getItem("Default Projects") != null) {
+    for (let i = 0; i < objectVersion.length; i++) {
+      createNewTask(
+        JSON.parse(objectVersion[i]).title,
+        JSON.parse(objectVersion[i]).description,
+        JSON.parse(objectVersion[i]).dueDate,
+        JSON.parse(objectVersion[i]).priority
+      );
+    }
+  }
+  return objectVersion;
+}
+
+export function newTask() {
+  createNewTask(title.value, desc.value, dueDate.value, priority.value);
   clearMainContainer();
   defaultGenerateTasks();
 }
