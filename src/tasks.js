@@ -43,6 +43,7 @@ today = yyyy + "-" + mm + "-" + dd;
 
 export const DEFAULT_TASK = new Task("Default Task", "This is a default task", today, "Average Severity");
 
+//function which assigns colors to task based on severity
 export function taskColor(severity) {
   let taskColor = null;
 
@@ -56,6 +57,7 @@ export function taskColor(severity) {
   return taskColor;
 }
 
+//delete task function
 export function deleteTask(index) {
   DEFAULT_PROJECTS.splice(index, 1);
   let old_data = JSON.parse(localStorage.getItem("Default Projects"));
@@ -65,7 +67,7 @@ export function deleteTask(index) {
   defaultGenerateTasks();
 }
 
-// save task to local storage
+//save task to local storage
 export function save() {
   //task to add to local storage
   let task = newTaskLocalStorage(title.value, desc.value, dueDate.value, priority.value);
@@ -99,6 +101,7 @@ export function generateFromLocal() {
   return objectVersion;
 }
 
+//new task function
 export function newTask() {
   createNewTask(title.value, desc.value, dueDate.value, priority.value);
   clearMainContainer();

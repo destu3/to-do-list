@@ -81,6 +81,7 @@ export function defaultGenerateTasks() {
   });
 }
 
+//clears the main container
 export function clearMainContainer() {
   while (mainContainer.firstChild) {
     mainContainer.removeChild(mainContainer.firstChild);
