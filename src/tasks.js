@@ -58,6 +58,9 @@ export function taskColor(severity) {
 
 export function deleteTask(index) {
   DEFAULT_PROJECTS.splice(index, 1);
+  let old_data = JSON.parse(localStorage.getItem("Default Projects"));
+  old_data.splice(index, 1);
+  localStorage.setItem("Default Projects", JSON.stringify(old_data));
   clearMainContainer();
   defaultGenerateTasks();
 }

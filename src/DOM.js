@@ -1,5 +1,5 @@
 import { DEFAULT_PROJECTS } from "./projects";
-import { createNewTask, taskColor, deleteTask, generateFromLocal } from "./tasks";
+import { taskColor, deleteTask, generateFromLocal } from "./tasks";
 
 // new task DOM inputs
 export const title = document.getElementById("title");
